@@ -81,14 +81,14 @@ RCT_EXPORT_METHOD(message:(NSString *)title picUrl:(NSString *)picUrl excluded:(
     
     //NSLog(@"%@", excludedArray);
     activityVC.excludedActivityTypes = excludedArray;
-    
+    callback(@[@"fail"]);
     activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed){
             //NSLog(@"The Activity: %@ was completed", activityType);
-            callback(@[activityType]);
+//            callback(@[activityType]);
         }else{
             //NSLog(@"The Activity: %@ was NOT completed", activityType);
-            callback(@[@"fail"]);
+//            callback(@[@"fail"]);
         }
         
     };
@@ -97,7 +97,6 @@ RCT_EXPORT_METHOD(message:(NSString *)title picUrl:(NSString *)picUrl excluded:(
 //分享连接
 RCT_EXPORT_METHOD(link:(NSString *)title url:(NSString *)url picUrl:(NSString *)picUrl excluded:(NSArray *)excluded callback:(RCTResponseSenderBlock)callback)
 {
-    
     //定义一个可变数组，最多不能超过2个值
     NSMutableArray * objectsToShare = [NSMutableArray arrayWithCapacity:2];
     if(picUrl){
@@ -165,16 +164,16 @@ RCT_EXPORT_METHOD(link:(NSString *)title url:(NSString *)url picUrl:(NSString *)
     }
     
     
-    //NSLog(@"%@", excludedArray);
+    NSLog(@"%@", excludedArray);
     activityVC.excludedActivityTypes = excludedArray;
-    
+    callback(@[@"fail"]);
     activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed){
             //NSLog(@"The Activity: %@ was completed", activityType);
-            callback(@[activityType]);
+//            callback(@[activityType]);
         }else{
             //NSLog(@"The Activity: %@ was NOT completed", activityType);
-            callback(@[@"fail"]);
+//            callback(@[@"fail"]);
         }
         
     };
@@ -246,14 +245,14 @@ RCT_EXPORT_METHOD(pictures:(NSArray *)ImagesUrl excluded:(NSArray *)excluded cal
     
     //NSLog(@"%@", excludedArray);
     activityVC.excludedActivityTypes = excludedArray;
-    
+    callback(@[@"fail"]);
     activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         if (completed){
             //NSLog(@"The Activity: %@ was completed", activityType);
-            callback(@[activityType]);
+//            callback(@[activityType]);
         }else{
             //NSLog(@"The Activity: %@ was NOT completed", activityType);
-            callback(@[@"fail"]);
+//            callback(@[@"fail"]);
         }
         
     };

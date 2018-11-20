@@ -1,8 +1,8 @@
 'use strict'
 import {NativeModules,Platform,CameraRoll} from 'react-native'
 import RNFS from 'react-native-fs';
+import md5 from 'crypto-js/md5';
 
-const Md5 = require('md5');
 const shareLocal = NativeModules.RNShareLocal
 
 export function shareMessage(option){
@@ -69,7 +69,7 @@ export function downloadImage(imagesUrl){
       var downFiles=[];
       var downNum=0;
       for(let key in imagesUrl){
-        let pathName = Md5(imagesUrl[key]) + ".jpg";
+        let pathName = md5(imagesUrl[key]).toString() + ".jpg";
         let downloadDest = `${storeLocation}/${pathName}`;
         if(imagesUrl[key].substring(0,4) == 'file'){
           RNFS.moveFile(imagesUrl[key],downloadDest).then((result)=>{
